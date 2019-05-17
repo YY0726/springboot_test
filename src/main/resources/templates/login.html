@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>查看请先登陆</h1>
+<a th:text="${msg}"></a>
+<form action="/studentController/login">
+    用户名:<input type="text" name="username"><br>
+    密码:<input type="text" name="password"><br>
+    <input type="submit" value="登陆"><a href="/studentController/sendEmail">忘记密码?</a>
+</form>
+</body>
+</html>

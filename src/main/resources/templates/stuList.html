@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>学生列表</h1>
+<a href="/studentController/addstu">添加学生</a>
+<table border="1">
+    <tr>
+        <td>编号</td>
+        <td>名字</td>
+        <td>性别</td>
+        <td>年龄</td>
+        <td>生日</td>
+        <td>密码</td>
+        <td>邮箱</td>
+        <td>操作</td>
+    </tr>
+
+        <tr th:each="stu : ${list}">
+            <td th:text="${stu.id}">编号</td>
+            <td th:text="${stu.username}">名字</td>
+            <td th:text="${stu.sex == 1?'男':'女'}">性别</td>
+            <td th:text="${stu.age}">年龄</td>
+            <td th:text="${#dates.format(stu.birthday,'yyyy-MM-dd')}">生日</td>
+            <td th:text="${stu.password}">密码</td>
+            <td th:text="${stu.email}">邮箱</td>
+            <td>
+                <a href="#" th:href="@{/studentController/getById(id=${stu.id})}"}>编辑</a>
+                <a href="#" th:href="@{/studentController/deleteStudent(id=${stu.id})}"}>删除</a>
+            </td>
+
+        </tr>
+</table>
+</body>
+</html>
